@@ -24,7 +24,7 @@ module Liquid
 			return "" if input.nil?
 
 			unless (input.is_a? Date) || (input.is_a? Time)
-				return "Liquid error: can't convert that to a Time!"
+				raise "Can't convert that to a Time!"
 			end
 
 			seconds_ago = Time.now - input
