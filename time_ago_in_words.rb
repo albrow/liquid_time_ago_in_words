@@ -36,7 +36,7 @@ module Liquid
 				return "just now"
 			
 			elsif seconds_ago < one_minute
-				return seconds_ago + " seconds ago"
+				return seconds_ago.round.to_s + " seconds ago"
 			
 
 			elsif seconds_ago < 2 * one_minute
