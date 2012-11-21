@@ -30,48 +30,48 @@ module Liquid
 				return "just now"
 			
 			elsif seconds_ago < one_minute
-				return str(seconds_ago) + " seconds ago"
+				return seconds_ago + " seconds ago"
 			
 
 			elsif seconds_ago < 2 * one_minute
 				return "about a minute ago"
 			
 			elsif seconds_ago < one_hour
-				return str(seconds_ago/one_minute) + " minutes ago"
+				return (seconds_ago/one_minute).round.to_s + " minutes ago"
 			
 
 			elsif seconds_ago < 2 * one_hour
 				return "about an hour ago"
 			
 			elsif seconds_ago < one_day
-				return str(seconds_ago/one_hour) + " hours ago"
+				return (seconds_ago/one_hour).round.to_s + " hours ago"
 			
 
 			elsif seconds_ago < 2 * one_day
 				return "about a day ago"
 			
 			elsif seconds_ago < one_week
-				return str(seconds_ago/one_day) + " days ago"
+				return (seconds_ago/one_day).round.to_s + " days ago"
 			
 
 			elsif seconds_ago < 2 * one_week
 				return "about a week ago"
 			
 			elsif seconds_ago < one_month
-				return str(seconds_ago/one_week) + " weeks ago"
+				return (seconds_ago/one_week).round.to_s + " weeks ago"
 			
 
 			elsif seconds_ago < 2 * one_month
 				return "about a month ago"
 			
 			elsif seconds_ago < one_year
-				return str(seconds_ago/one_month) + " months ago"
+				return (seconds_ago/one_month).round.to_s + " months ago"
 			
 
 			elsif seconds_ago < 2 * one_year
 				return "about a year ago"
 			else
-				return str(seconds_ago/one_year) + " years ago"
+				return (seconds_ago/one_year).round.to_s + " years ago"
 			end
 
 		end
