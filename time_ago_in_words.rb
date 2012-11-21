@@ -21,6 +21,12 @@ module Liquid
 			one_month = one_day * 3652425 / 120000
 			one_year = one_day * 3652425 / 10000
 
+			return "" if input.nil?
+
+			unless (input.is_a? Date) || (input.is_a? Time)
+				return "Liquid error: can't convert that to a Time!"
+			end
+
 			seconds_ago = Time.now - input
 
 			if seconds_ago < 0
