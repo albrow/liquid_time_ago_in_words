@@ -23,62 +23,81 @@ module Liquid
 
 			return "" if input.nil?
 
+			words = ""
+
 			unless (input.is_a? Date) || (input.is_a? Time)
 				raise "Can't convert that to a Time!"
 			end
 
-			seconds_ago = Time.now - input
+			now = Time.now
+			seconds_ago = now - input
 
 			if seconds_ago < 0
-				return "in the future"
+				words = "in the future"
 			
 			elsif seconds_ago < 10
-				return "just now"
+				words = "just now"
 			
 			elsif seconds_ago < one_minute
-				return seconds_ago.round.to_s + " seconds ago"
+				words = seconds_ago.round.to_s + " seconds ago"
 			
 
 			elsif seconds_ago < 2 * one_minute
-				return "about a minute ago"
+				words = "about a minute ago"
 			
 			elsif seconds_ago < one_hour
-				return (seconds_ago/one_minute).round.to_s + " minutes ago"
+				words = (seconds_ago/one_minute).round.to_s + " minutes ago"
 			
 
 			elsif seconds_ago < 2 * one_hour
-				return "about an hour ago"
+				words = "about an hour ago"
 			
 			elsif seconds_ago < one_day
-				return (seconds_ago/one_hour).round.to_s + " hours ago"
+				words = (seconds_ago/one_hour).round.to_s + " hours ago"
 			
 
 			elsif seconds_ago < 2 * one_day
-				return "about a day ago"
+				words = "about a day ago"
 			
 			elsif seconds_ago < one_week
-				return (seconds_ago/one_day).round.to_s + " days ago"
+				words = (seconds_ago/one_day).round.to_s + " days ago"
 			
 
 			elsif seconds_ago < 2 * one_week
-				return "about a week ago"
+				words = "about a week ago"
 			
 			elsif seconds_ago < one_month
-				return (seconds_ago/one_week).round.to_s + " weeks ago"
+				words = (seconds_ago/one_week).round.to_s + " weeks ago"
 			
 
 			elsif seconds_ago < 2 * one_month
-				return "about a month ago"
+				words = "about a month ago"
 			
 			elsif seconds_ago < one_year
-				return (seconds_ago/one_month).round.to_s + " months ago"
+				words = (seconds_ago/one_month).round.to_s + " months ago"
 			
 
 			elsif seconds_ago < 2 * one_year
-				return "about a year ago"
+				words = "about a year ago"
 			else
-				return (seconds_ago/one_year).round.to_s + " years ago"
+				words = (seconds_ago/one_year).round.to_s + " years ago"
 			end
+
+			# a javascript call to update the time ago client-side
+			script = "<script>
+								document.addEventListener('DOMContentLoaded',function(){
+									if (typeof(update_time_ago) == typeof(Function)) {
+										update_time_ago(#{input.tv_sec});
+									}
+								});
+								</script>"
+
+			output = "<span class='time-ago' id='#{input.tv_sec}' data-seconds='#{input.tv_sec}'>
+								#{words}
+								</span>
+								#{script}"
+
+			return output
 
 		end
 	end
