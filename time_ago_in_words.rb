@@ -8,6 +8,9 @@
 #
 # 	Documentation:
 #		https://github.com/stephenalexbrowne/liquid_time_ago_in_words
+#
+#
+#	v 1.0.1
 # 
 ###
 

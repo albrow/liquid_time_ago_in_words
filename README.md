@@ -1,6 +1,8 @@
 Liquid time_ago_in_words
 ========================
 
+(v 1.0.1)
+
 A rails-style time_ago_in_words filter for the [liquid templating language](http://liquidmarkup.org/).
 Intended for use for people who use liquid without rails (e.g. a Jekyll or Octopress blog).
 If you're using liquid with rails, you don't need this!
