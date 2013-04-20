@@ -11,8 +11,8 @@
 # 
 ###
 
-module Liquid
-	module StandardFilters
+module Jekyll
+  module TimeFilter
 		def time_ago_in_words(input)      
 			one_minute = 60
 			one_hour = 60 * one_minute
@@ -98,7 +98,8 @@ module Liquid
 								#{script}"
 
 			return output
-
 		end
 	end
 end
+
+Liquid::Template.register_filter(Jekyll::TimeFilter)
