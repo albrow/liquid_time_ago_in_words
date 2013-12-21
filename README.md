@@ -15,11 +15,11 @@ The code is based on [Klaus Byskov Hoffmann's language-agnostic version](http://
 In your plugins directory:
 
 ```bash
-curl -L -O https://github.com/stephenalexbrowne/liquid_time_ago_in_words/raw/master/time_ago_in_words.rb
+curl -L -O https://github.com/albrow/liquid_time_ago_in_words/raw/master/time_ago_in_words.rb
 ```
 or 
 ```bash
-wget https://github.com/stephenalexbrowne/liquid_time_ago_in_words/raw/master/time_ago_in_words.rb
+wget https://github.com/albrow/liquid_time_ago_in_words/raw/master/time_ago_in_words.rb
 ```
 Don't forget to restart your server!
 
